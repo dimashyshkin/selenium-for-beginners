@@ -40,21 +40,21 @@ public class PositiveTests {
 
 		// verifications
 		// new url
-		String expectedPageUrl = "http://the-internet.herokuapp.com/secure";
-		String actualPageUrl = driver.getCurrentUrl();
-		Assert.assertEquals(expectedPageUrl, actualPageUrl);
+		String expectedUrl = "http://the-internet.herokuapp.com/secure";
+		String actualUrl = driver.getCurrentUrl();
+		Assert.assertEquals(actualUrl, expectedUrl);
 
 		// log out button is visible
 		WebElement logOutButton = driver.findElement(By.xpath("//a[@class='button secondary radius']"));
-		Assert.assertTrue(logOutButton.isDisplayed(), "LogOutButtos is not displayed.");
+		Assert.assertTrue(logOutButton.isDisplayed(), "logOutButton is not visible.");
 
 		// Successful log in message
 		WebElement successMessage = driver.findElement(By.id("flash"));
 		String expectedSuccessMessage = "You logged into a secure area!";
 		String actualSuccessMessage = successMessage.getText();
 		Assert.assertTrue(actualSuccessMessage.contains(expectedSuccessMessage),
-				"Actual success message does not contain expected\nactualSuccessMessage: " + actualSuccessMessage
-						+ "\nexpectedSuccessMessage: " + expectedSuccessMessage);
+				"actualSuccessMessage does not contain expectedSuccessMessage\nexpectedSuccessMessage: "
+						+ expectedSuccessMessage + "\nactualSuccessMessage: " + actualSuccessMessage);
 
 		sleep(3000);
 
