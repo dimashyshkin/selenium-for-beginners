@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="NegativeTestSuite" verbose="1">
+
+	<test name="NegativeTest">
+		<classes>
+			<class name="com.herokuapp.theinternet.NegativeTests">
+				<methods>
+					<include name="incorrectPasswordTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+</suite>
