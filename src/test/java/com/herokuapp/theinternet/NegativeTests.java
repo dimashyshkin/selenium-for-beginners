@@ -53,6 +53,52 @@ public class NegativeTests {
 		driver.quit();
 
 	}
+	
+	
+	@Test
+	public void incorrectPasswordTest() {
+		System.out.println("Starting incorrectPasswordTest");
+		
+		// Create driver
+		System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+
+		sleep(3000);
+
+		driver.manage().window().maximize();
+
+		// open the page
+		String url = "http://the-internet.herokuapp.com/login";
+		driver.get(url);
+		sleep(2000);
+		System.out.println("Page is opened.");
+
+		// enter incorrect username
+		WebElement username = driver.findElement(By.id("username"));
+		username.sendKeys("tomsmith");
+
+		// enter password
+		WebElement password = driver.findElement(By.id("password"));
+		password.sendKeys("incorrectPassword!");
+
+		// push log in button
+		WebElement logInButton = driver.findElement(By.className("radius"));
+		logInButton.click();
+
+		// Verification
+		WebElement errorMessage = driver.findElement(By.id("flash"));
+		String expectedErrorMessage = "Your password is invalid!";
+		String actualErrorMessage = errorMessage.getText();
+		Assert.assertTrue(actualErrorMessage.contains(expectedErrorMessage),
+				"actualErrorMessage does not contain expectedErrorMessage\nexpectedErrorMessage: "
+						+ expectedErrorMessage + "\nactualErrorMessage: " + actualErrorMessage);
+
+		sleep(3000);
+
+		// Close browser
+		driver.quit();
+
+	}
 
 	/** Static sleep */
 	private void sleep(long millis) {
