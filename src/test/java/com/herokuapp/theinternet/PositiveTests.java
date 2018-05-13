@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -19,6 +21,7 @@ public class PositiveTests {
 		sleep(3000);
 
 		driver.manage().window().maximize();
+		//driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
 		// open the page
 		String url = "http://the-internet.herokuapp.com/login";
@@ -36,6 +39,10 @@ public class PositiveTests {
 
 		// push log in button
 		WebElement logInButton = driver.findElement(By.className("radius"));
+		
+		WebDriverWait wait1 = new WebDriverWait(driver, 10);
+		wait1.until(ExpectedConditions.elementToBeClickable(logInButton));
+		
 		logInButton.click();
 
 		// verifications
@@ -43,11 +50,11 @@ public class PositiveTests {
 		String expectedUrl = "http://the-internet.herokuapp.com/secure";
 		String actualUrl = driver.getCurrentUrl();
 		Assert.assertEquals(actualUrl, expectedUrl);
-
+		
 		// log out button is visible
 		WebElement logOutButton = driver.findElement(By.xpath("//a[@class='button secondary radius']"));
-		Assert.assertTrue(logOutButton.isDisplayed(), "logOutButton is not visible.");
-
+		Assert.assertTrue(logOutButton.isDisplayed(), "logOutButton is not visible.");		
+		
 		// Successful log in message
 		WebElement successMessage = driver.findElement(By.id("flash"));
 		String expectedSuccessMessage = "You logged into a secure area!";
