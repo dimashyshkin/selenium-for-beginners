@@ -6,7 +6,7 @@
 		<classes>
 			<class name="com.herokuapp.theinternet.ExceptionsTests" >
 				<methods>
-					<include name="timeoutTest"></include>
+					<include name="staleElementTest"></include>
 				</methods>
 			</class>
 		</classes>
