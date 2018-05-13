@@ -1,9 +1,12 @@
 package com.herokuapp.theinternet;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -19,6 +22,7 @@ public class PositiveTests {
 		sleep(3000);
 
 		driver.manage().window().maximize();
+		// driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
 		// open the page
 		String url = "http://the-internet.herokuapp.com/login";
@@ -34,8 +38,15 @@ public class PositiveTests {
 		WebElement password = driver.findElement(By.id("password"));
 		password.sendKeys("SuperSecretPassword!");
 
+		WebDriverWait wait1 = new WebDriverWait(driver, 10);
+
 		// push log in button
 		WebElement logInButton = driver.findElement(By.className("radius"));
+		try {
+			wait1.until(ExpectedConditions.elementToBeClickable(logInButton));
+		} catch (TimeoutException e) {
+			// few steps here
+		}
 		logInButton.click();
 
 		// verifications
