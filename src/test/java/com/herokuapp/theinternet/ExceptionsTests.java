@@ -13,10 +13,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class ExceptionsTests {
-	WebDriver driver;
+	private WebDriver driver;
 
 	@BeforeMethod
-	private WebDriver setUp() {
+	private void setUp() {
 		System.out.println("Creating driver");
 		// Create driver
 		System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
@@ -25,7 +25,6 @@ public class ExceptionsTests {
 		sleep(3000);
 
 		driver.manage().window().maximize();
-		return driver;
 	}
 
 	@Test

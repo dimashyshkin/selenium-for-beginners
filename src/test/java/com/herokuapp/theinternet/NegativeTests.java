@@ -17,7 +17,7 @@ public class NegativeTests {
 
 	@Parameters({ "browser" })
 	@BeforeMethod
-	protected void setUp(@Optional("chrome") String browser) {
+	private void setUp(@Optional("chrome") String browser) {
 		// Create driver
 		System.out.println("Create driver: " + browser);
 
@@ -76,7 +76,7 @@ public class NegativeTests {
 	}
 
 	@AfterMethod
-	protected void tearDown() {
+	private void tearDown() {
 		sleep(3000);
 		System.out.println("Close driver");
 		// Close browser
