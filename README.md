@@ -1,4 +1,6 @@
-Source code for Udemy cource https://www.udemy.com/selenium-for-beginners/
+Old version of the course. 
+Take a look at new updated version: https://github.com/dimashyshkin/Selenium-WebDriver-with-Java-for-beginners
+
 # selenium-for-beginners
 https://www.udemy.com/user/dimashyshkin/
 
