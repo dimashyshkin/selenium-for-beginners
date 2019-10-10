@@ -1,4 +1,4 @@
-Old version of the course. 
+# Old version of the course. 
 
 Take a look at new updated version: https://github.com/dimashyshkin/Selenium-WebDriver-with-Java-for-beginners
 
