@@ -5,7 +5,7 @@ Take a look at new updated version: https://github.com/dimashyshkin/Selenium-Web
 Code examples for Selenium WebDriver for beginners course on Udemy
 Highest rated "Selenium WebDriver with Java for beginners" course - https://www.udemy.com/course/selenium-for-beginners/?referralCode=A21BE51035C15406EFA4/
 
-Also check out my other courses:
+Also check out my other courses: https://practicetestautomation.com/courses/
 
 Bestseller "XPath locators for Selenium" course - https://www.udemy.com/course/xpath-locators-for-selenium/?referralCode=ACB28329B5AC2333DDCC/
 
